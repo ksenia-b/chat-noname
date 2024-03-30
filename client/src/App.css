@@ -1,0 +1,16 @@
+h1,
+p {
+    font-family: Lato;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-size: 40px;
+}
+
+.active {
+    text-decoration: none;
+    color: blue;
+    font-size: 40px;
+}
