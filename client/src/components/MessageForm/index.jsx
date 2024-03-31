@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
-import { auth, db } from "../../firebase";
+import {auth, db} from "../../firebase";
 import * as uuid from 'uuid';
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {addDoc, collection, serverTimestamp} from "firebase/firestore";
 import {AuthContext} from "../../auth/AuthContext.jsx";
 
 const MessageForm = ({chatId}) => {
@@ -15,10 +15,10 @@ const MessageForm = ({chatId}) => {
             return;
         }
         const __createdtime__ = Date.now();
-        // Send message to server. We can't specify who we send the message to from the frontend. We can only send to server. Server can then send message to rest of users in room
-        socket.emit('send_message', { user:currentUser, room:chatId, message, __createdtime__ });
-        setMessage('');
 
+        // Send message to server. We can't specify who we send the message to from the frontend. We can only send to server. Server can then send message to rest of users in room
+        socket.emit('send_message', {username: currentUser, room: chatId, message, __createdtime__});
+        setMessage('');
 
     };
 
@@ -28,6 +28,7 @@ const MessageForm = ({chatId}) => {
                 Enter Message
             </label>
             <input
+                className="input-message"
                 placeholder='Message...'
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}

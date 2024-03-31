@@ -1,9 +1,10 @@
 import {Outlet} from "react-router-dom";
 import MainNav from "../components/MainNav";
-import { signOut } from "firebase/auth";
+import {signOut} from "firebase/auth";
 import {AuthContext} from "../auth/AuthContext";
-import React, { useContext } from "react";
-import { auth } from '../firebase.js';
+import React, {useContext} from "react";
+import {auth} from '../firebase.js';
+
 const Layout = () => {
     const {currentUser} = useContext(AuthContext)
     const handleLogout = () => {

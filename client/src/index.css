@@ -89,14 +89,14 @@ p {
     font-size: 20px;
 }
 
-.chatCard{
+.chatCard {
 
     padding: 10px 15px;
     margin-top: 0px;
 
 }
 
-.chatDetailsPanel{
+.chatDetailsPanel {
     background-color: #e3e4f8;
     padding: 20px 30px;
     min-width: 600px;
@@ -104,19 +104,22 @@ p {
 
 }
 
-.send-message{
+.send-message {
     margin-top: 40px;
 }
-.message{
+
+.message {
     padding: 12px;
     border-radius: 12px;
     margin-top: 8px;
     width: 600px;
 }
-.currentUser{
+
+.currentUser {
     background-color: #d6d6d6;
 }
 
-.otherUser{
+.otherUser {
     background-color: #ffffff;;
 }
+

@@ -38,19 +38,19 @@ function App() {
 
     console.log('current user---', currentUser)
     return (
-        <AuthProvider value={{currentUser, socket}} >
+        <AuthProvider value={{currentUser, socket}}>
             <Router>
                 <Routes>
                     <Route element={<Layout/>}>
-                        <Route path="/" element={ <Home/>}/>
+                        <Route path="/" element={<Home/>}/>
                         <Route path="login" element={<Login/>}/>
                         <Route path="signup" element={<Signup/>}/>
 
 
                         <Route
                             path="chats"
-        element={<Chats
-        />}
+                            element={<Chats
+                            />}
                         >
                             <Route path=":chatId" element={<ChatDetails/>}/>
 

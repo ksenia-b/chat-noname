@@ -91,13 +91,14 @@
 import {useContext} from "react";
 import {navigate, useNavigate} from "react-router-dom";
 import {AuthContext} from "../auth/AuthContext";
+
 const Home = () => {
     const navigate = useNavigate();
     const {currentUser} = useContext(AuthContext)
 
     return (
         <>Home page:
-    {currentUser && navigate("/chats") }
+            {currentUser && navigate("/chats")}
         </>
     )
 }

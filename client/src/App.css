@@ -14,3 +14,10 @@ p {
     color: blue;
     font-size: 40px;
 }
+
+.inputMessage{
+    width: 60%;
+    padding: 4px;
+    height: 30px;
+
+}
