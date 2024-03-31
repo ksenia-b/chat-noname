@@ -5,6 +5,7 @@ import {AuthContext} from "../auth/AuthContext";
 import {collection, query, orderBy, limit, onSnapshot, where} from "firebase/firestore";
 import {db} from '../firebase.js';
 import Message from "../components/Message"
+import Messages from "../components/Messages"
 
 const ChatDetails = () => {
     const {chatId} = useParams();
@@ -13,7 +14,7 @@ const ChatDetails = () => {
 
     const {currentUser, socket} = useContext(AuthContext)
     const [messages, setMessages] = useState([]);
-    
+
     useEffect(() => {
         const q = query(
             collection(db, "messages"), where("chatId", "==", chatId),
@@ -42,12 +43,12 @@ const ChatDetails = () => {
                 <h3>{currentChat?.title}</h3>
                 <span>{currentChat?.description}</span>
             </div>
-            {/*<Messages chatId={chatId} messages={messages}/>*/}
-            <div className="messages-wrapper">
-                {messages?.map((message) => (
-                    <Message key={message.id} message={message}/>
-                ))}
-            </div>
+            <Messages messages={messages}/>
+            {/*<div className="messages-wrapper">*/}
+            {/*    {messages?.map((message) => (*/}
+            {/*        <Message key={message.id} message={message}/>*/}
+            {/*    ))}*/}
+            {/*</div>*/}
             <MessageForm chatId={chatId}/>
 
         </div>

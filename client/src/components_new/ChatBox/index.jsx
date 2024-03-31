@@ -8,6 +8,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import Message from "./Message";
+import Messages from "../../components/Messages/index.jsx";
 import SendMessage from "./SendMessage";
 
 const ChatBox = () => {
@@ -36,13 +37,7 @@ const ChatBox = () => {
 
     return (
         <main className="chat-box">
-            <div className="messages-wrapper">
-                {messages?.map((message) => (
-                    <Message key={message.id} message={message} />
-                ))}
-            </div>
-            {/* when a new message enters the chat, the screen scrolls down to the scroll div */}
-            <span ref={scroll}></span>
+       <Messages/>
             <SendMessage scroll={scroll} />
         </main>
     );

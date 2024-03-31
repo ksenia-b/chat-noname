@@ -175,13 +175,6 @@ const io = new Server(chatServer, {
 io.on('connection', (socket) => {
     console.log(`User connected ${socket.id}`);
 
-// Save the new user to the room
-    chatRoom = room;
-    allUsers.push({ id: socket.id, username, room });
-    chatRoomUsers = allUsers.filter((user) => user.room === room);
-    socket.to(room).emit('chatroom_users', chatRoomUsers);
-    socket.emit('chatroom_users', chatRoomUsers);
-
     // Add a user to a room
     socket.on('join_room', (data) => {
         const {username, room} = data; // Data sent from client when join_room event emitted
@@ -245,6 +238,13 @@ io.on('connection', (socket) => {
         //     message, username, room,
         //     // __createdtime__
         // });
+
+        // Save the new user to the room
+        chatRoom = room;
+        allUsers.push({ id: socket.id, username, room });
+        chatRoomUsers = allUsers.filter((user) => user.room === room);
+        socket.to(room).emit('chatroom_users', chatRoomUsers);
+        socket.emit('chatroom_users', chatRoomUsers);
 
         // Send to all users in room, including sender
         addDoc(collection(db, "messages"), {
